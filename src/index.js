@@ -4,6 +4,7 @@ import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Main from "./Main";
+import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.cs";
 /*ReactDOM.render(
 /  <React.StrictMode>
     <App />

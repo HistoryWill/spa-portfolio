@@ -12,6 +12,7 @@ import Blog from "./componets/Blog";
 import About from "./componets/About";
 import Weather from "./componets/Weather"
 import 'bootstrap/dist/css/bootstrap.css';
+//import 'pastel.css'
 
 class Main extends Component {
     
