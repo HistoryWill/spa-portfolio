@@ -12,8 +12,7 @@ class Weather extends Component {
         this.checkTemp = this.checkTemp.bind(this);
     }
     fetchWeather(){
-        //this.setState({value :'a'});
-        //console.log(this.state.value);
+      
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?id=5037649&appid=20cb7c3f70bc171cda7bac3503a38ff1"
 ).then((res) =>  res.json())
@@ -29,6 +28,7 @@ class Weather extends Component {
 }
 
     checkTemp(){
+        this.props.weatherCallback(this.state.status);
         console.log(this.state.items['main']["feels_like"]);
         var conver = this.state.items['main']["feels_like"];
 
@@ -39,6 +39,7 @@ class Weather extends Component {
             this.setState({status: "Will is A-okay!"});
         }
         console.log(this.state.status)
+        this.props.weatherCallback(this.state.status);
        // this.fetchWeather()
 //var things = this.state.items.map();
 //console.log(things);
