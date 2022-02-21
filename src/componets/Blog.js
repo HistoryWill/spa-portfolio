@@ -1,58 +1,58 @@
 import React, { Component } from "react";
 import customData from 'C:/Users/supac/Desktop/REACTLYSPAPROJECT/spa-portfolio/src/blogs.json';
 class Blog extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             blogs: [],
-            DataisLoaded : false
+            DataisLoaded: false
         };
         const loadData = () => JSON.parse(JSON.stringify(customData));
         this.fetchBlogs = this.fetchBlogs.bind(this);
-        //this.checkTemp = this.checkTemp.bind(this); 
+
     }
-    
-    fetchBlogs(){
-      
+
+    fetchBlogs() {
+//This method pulls the blog data using a fetch command stores them into a javascript object.
         fetch(
             "../blogs.json"
         ).then((res) => res.json())
-        .then((json) => {
-            this.setState({
-                
-                blogs: json,
-                DataisLoaded: true,
-               
+            .then((json) => {
+                this.setState({
+
+                    blogs: json,
+                    DataisLoaded: true,
+
+                });
             });
-        });
-     //   console.log(this.state.blogs)
-       
-}
+
+    }
 
 
 
     render() {
-        const {DataisLoaded, items, status} = this.state;
-        if(!DataisLoaded){
+        const { DataisLoaded, blogs, status } = this.state;
+        if (!DataisLoaded) {
             this.fetchBlogs()
-        }else{
-          //  console.log(this.state.blogs)
-            
+            // This code block will ensure the that the blog data is already loaded.
+        } else {
+
         }
-        //this.fetchWeather()
-        return(
+        return (
             <div>
-            <div>{console.log(this.state.blogs)}
-            
-            <button type="button" name="CheckWeather" id="" class="btn btn-primary|dark|link" button onClick={this.fetchBlogs}>CheckWeather</button>
-                <div
-                class="col">{this.state.status}</div>
-            
+                <div>{console.log(this.state.blogs)}
+                    {/* This button will fetch the current blog json data and print it out in the console to prove the fetch worked correctly */}
+                    <button type="button" name="CheckWeather" id="" class="btn btn-primary|dark|link" button onClick={this.fetchBlogs}>Fetch Blogs</button>
+                    <div
+                        class="col">{this.state.status}</div>
+                    {/* This segment would be where the blog object would be iterated through and displayed, along with creating a router object to allow the hashroute to  */}
+
+                </div>
+
             </div>
-          
-            </div>
-         ) };
-    }
-  
-   
-  export default Blog;
+        )
+    };
+}
+
+
+export default Blog;

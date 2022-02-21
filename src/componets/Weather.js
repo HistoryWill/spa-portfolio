@@ -12,7 +12,7 @@ class Weather extends Component {
         this.checkTemp = this.checkTemp.bind(this);
     }
     fetchWeather(){
-      
+    //   This pulls data from the api 
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?id=5037649&appid=20cb7c3f70bc171cda7bac3503a38ff1"
 ).then((res) =>  res.json())
@@ -28,6 +28,7 @@ class Weather extends Component {
 }
 
     checkTemp(){
+        //This method will get the temperature and determine if it is below freezing or not in minneapolis. If it is it will then fire a call back function to the main method v 
         this.props.weatherCallback(this.state.status);
         console.log(this.state.items['main']["feels_like"]);
         var conver = this.state.items['main']["feels_like"];
@@ -40,17 +41,16 @@ class Weather extends Component {
         }
         console.log(this.state.status)
         this.props.weatherCallback(this.state.status);
-       // this.fetchWeather()
-//var things = this.state.items.map();
-//console.log(things);
+        // This is the CallBack sfunction
+
     }
     
     render(){
         const {DataisLoaded, items, status} = this.state;
         if(!DataisLoaded){
             this.fetchWeather()
+            // This calls the fetch Weather function
         }
-        //this.fetchWeather()
         return(
             <div class="row">
                 <div class="col">

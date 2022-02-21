@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 class About extends Component {
   render() {
+    // This is a simple class that returns divs/
     return (
       <div>
         <div class="row">
